@@ -1,0 +1,116 @@
+{
+  "title": "Table 16: Robustness, Runtime, and Deployment (template — edit values for your manuscript)",
+  "metric_keys": [
+    "map50",
+    "dice",
+    "latency_ms",
+    "peak_mem_mb",
+    "fps"
+  ],
+  "column_labels": {
+    "variant": "Condition / platform",
+    "map50": "mAP@0.5 ↑",
+    "dice": "Dice ↑",
+    "latency_ms": "Latency (ms) ↓",
+    "peak_mem_mb": "Peak mem (MB) ↓",
+    "fps": "FPS ↑",
+    "insight": "Notes"
+  },
+  "footnotes": [
+    "Replace rows with your Table 16 experiments (noise, resolution, hardware, quantization, etc.)."
+  ],
+  "sections": [
+    {
+      "id": "noise_robustness",
+      "title": "1. Robustness to additive noise (σ on input)",
+      "rows": [
+        {
+          "variant": "σ = 0 (clean)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "latency_ms": 26.0,
+          "peak_mem_mb": 2100.0,
+          "fps": 38.0,
+          "insight": "Reference"
+        },
+        {
+          "variant": "σ = 0.02",
+          "map50": 0.882,
+          "dice": 0.821,
+          "latency_ms": 26.0,
+          "peak_mem_mb": 2100.0,
+          "fps": 38.0,
+          "insight": "Mild degradation"
+        },
+        {
+          "variant": "σ = 0.05",
+          "map50": 0.861,
+          "dice": 0.805,
+          "latency_ms": 26.0,
+          "peak_mem_mb": 2100.0,
+          "fps": 38.0,
+          "insight": "Still usable"
+        }
+      ]
+    },
+    {
+      "id": "input_resolution",
+      "title": "2. Input resolution (short edge, mm-equivalent placeholder)",
+      "rows": [
+        {
+          "variant": "384 px",
+          "map50": 0.876,
+          "dice": 0.819,
+          "latency_ms": 18.0,
+          "peak_mem_mb": 1400.0,
+          "fps": 52.0,
+          "insight": "Faster, lower accuracy"
+        },
+        {
+          "variant": "512 px (Ours)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "latency_ms": 26.0,
+          "peak_mem_mb": 2100.0,
+          "fps": 38.0,
+          "insight": "Operating point",
+          "highlight": true
+        },
+        {
+          "variant": "640 px",
+          "map50": 0.899,
+          "dice": 0.838,
+          "latency_ms": 41.0,
+          "peak_mem_mb": 3100.0,
+          "fps": 24.0,
+          "insight": "Diminishing returns"
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "title": "3. Deployment hardware (same batch size)",
+      "rows": [
+        {
+          "variant": "RTX 3080 (CUDA)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "latency_ms": 26.0,
+          "peak_mem_mb": 2100.0,
+          "fps": 38.0,
+          "insight": "Primary GPU",
+          "highlight": true
+        },
+        {
+          "variant": "CPU (Intel i7, FP32)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "latency_ms": 420.0,
+          "peak_mem_mb": 800.0,
+          "fps": 2.4,
+          "insight": "Clinical fallback"
+        }
+      ]
+    }
+  ]
+}

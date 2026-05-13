@@ -1,0 +1,11 @@
+{
+  "mode": "measure",
+  "dataset_root": "Dataset",
+  "val_ratio": 0.2,
+  "test_ratio": 0.1,
+  "batch_size": 4,
+  "checkpoint": "checkpoints/best_model.pt",
+  "metadata_csv": "",
+  "binary_pred": "two_logits",
+  "comment": "If metadata_csv is set, round/elongated/lobulated from load_metadata (Table 8 rules); lobulated excluded. If empty, use dataset shape_label (0/1 only; lobulated excluded)."
+}

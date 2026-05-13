@@ -1,0 +1,58 @@
+{
+  "pixel_spacing_mm": 0.1,
+  "boundary_tolerance_px": 2,
+  "paired_stats": {
+    "primary_name": "M-ACAM (Ours)",
+    "reference_name": "Swin-Unet [3]"
+  },
+  "models": [
+    {
+      "name": "U-Net [17]",
+      "static": {
+        "dice": 0.763,
+        "iou": 0.694,
+        "precision": 0.789,
+        "recall": 0.741,
+        "boundary_f1": 0.731,
+        "hd95_mm": 8.42
+      }
+    },
+    {
+      "name": "TransUNet [4]",
+      "static": {
+        "dice": 0.808,
+        "iou": 0.731,
+        "precision": 0.834,
+        "recall": 0.785,
+        "boundary_f1": 0.772,
+        "hd95_mm": 6.87
+      }
+    },
+    {
+      "name": "Swin-Unet [3]",
+      "static": {
+        "dice": 0.821,
+        "iou": 0.743,
+        "precision": 0.847,
+        "recall": 0.798,
+        "boundary_f1": 0.785,
+        "hd95_mm": 6.34
+      }
+    },
+    {
+      "name": "EfficientNet-B0 [28]",
+      "static": {
+        "dice": 0.791,
+        "iou": 0.718,
+        "precision": 0.821,
+        "recall": 0.763,
+        "boundary_f1": 0.754,
+        "hd95_mm": 7.61
+      }
+    },
+    {
+      "name": "M-ACAM (Ours)",
+      "checkpoint": "checkpoints/best_model.pt"
+    }
+  ]
+}

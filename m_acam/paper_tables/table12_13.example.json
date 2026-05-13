@@ -1,0 +1,65 @@
+{
+  "table12": {
+    "mode": "static",
+    "size_estimation": {
+      "mae_cm": 0.34,
+      "mae_std_cm": 0.21,
+      "rmse_cm": 0.47,
+      "rmse_std_cm": 0.28,
+      "correlation_r": 0.941,
+      "within_0_5_cm_pct": 0.842,
+      "within_1_0_cm_pct": 0.963,
+      "thresholds": {
+        "mae_accept_cm": "< 0.5 cm (acceptable)",
+        "rmse_accept_cm": "< 0.7 cm (acceptable)",
+        "r_excellent": "> 0.9 (excellent)",
+        "within_0_5_target": "> 80% (target)",
+        "within_1_0_target": "> 95% (target)"
+      }
+    },
+    "bland_altman_cm": {
+      "mean_diff": -0.02,
+      "loa_low": -0.89,
+      "loa_high": 0.85
+    },
+    "eccentricity": {
+      "mae": 0.041,
+      "mae_std": 0.032,
+      "rmse": 0.053,
+      "rmse_std": 0.041,
+      "correlation_r": 0.897,
+      "shape_agreement_pct": 0.912
+    }
+  },
+  "table13": {
+    "mode": "static",
+    "rows": [
+      {
+        "name": "Type 0-2 (Submucosal)",
+        "figo_classes": [0, 1, 2],
+        "count": 33,
+        "accuracy": 0.85,
+        "f1": 0.821
+      },
+      {
+        "name": "Type 3-4 (Intramural)",
+        "figo_classes": [3, 4],
+        "count": 257,
+        "accuracy": 0.933,
+        "f1": 0.935
+      },
+      {
+        "name": "Type 5-7 (Subserosal)",
+        "figo_classes": [5, 6, 7],
+        "count": 8,
+        "accuracy": 0.75,
+        "f1": 0.743
+      }
+    ],
+    "weighted_average": {
+      "count": 298,
+      "accuracy": 0.923,
+      "f1": 0.924
+    }
+  }
+}

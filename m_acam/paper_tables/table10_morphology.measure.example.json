@@ -1,0 +1,15 @@
+{
+  "mode": "measure",
+  "eccentricity_threshold": 0.7,
+  "baseline_name": "Swin-Unet",
+  "highlight_morphology": "elongated",
+  "significance_level": 0.001,
+  "significance_note": "p < 0.001, validates morphology-aware attention hypothesis",
+  "dataset_root": "Dataset",
+  "val_ratio": 0.2,
+  "test_ratio": 0.1,
+  "batch_size": 4,
+  "metadata_csv": "m_acam/morphology_labels_template.csv",
+  "checkpoint_macam": "checkpoints/best_model.pt",
+  "checkpoint_baseline": "checkpoints/baseline_model.pt"
+}

@@ -1,0 +1,24 @@
+{
+  "table12": {
+    "mode": "measure",
+    "dataset_root": "Dataset",
+    "val_ratio": 0.2,
+    "test_ratio": 0.1,
+    "batch_size": 4,
+    "checkpoint": "checkpoints/best_model.pt",
+    "metadata_csv": "m_acam/morphology_labels_template.csv",
+    "min_size_cm": 0.01,
+    "bootstrap_std_samples": 2000,
+    "comment": "If metadata_csv is empty, uses batch size_cm when > min_size_cm. Bland-Altman uses pred vs true size (cm)."
+  },
+  "table13": {
+    "mode": "measure",
+    "dataset_root": "Dataset",
+    "val_ratio": 0.2,
+    "test_ratio": 0.1,
+    "batch_size": 4,
+    "checkpoint": "checkpoints/best_model.pt",
+    "metadata_csv": "",
+    "comment": "FIGO label from batch figo_label (0-7). Optional metadata_csv figo overrides per image_id."
+  }
+}

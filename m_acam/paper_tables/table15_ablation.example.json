@@ -1,0 +1,257 @@
+{
+  "title": "Table 15: Comprehensive Ablation Study Results for M-ACAM",
+  "footnotes": [
+    "*Statistically significant (p < 0.001, paired t-test) regarding the improvement for elongated lesions."
+  ],
+  "sections": [
+    {
+      "id": "component_level",
+      "title": "1. Component-Level Ablation",
+      "rows": [
+        {
+          "variant": "Baseline (ResNet50 + U-Net)",
+          "map50": null,
+          "dice": 0.788,
+          "iou": null,
+          "shape_acc": null,
+          "boundary_f1": null,
+          "params_m": 23.1,
+          "fps": 45,
+          "insight": "Base model"
+        },
+        {
+          "variant": "+ Detection Head",
+          "map50": 0.867,
+          "dice": 0.791,
+          "iou": null,
+          "shape_acc": null,
+          "boundary_f1": null,
+          "params_m": 23.9,
+          "fps": 39,
+          "insight": "Multi-task boost"
+        },
+        {
+          "variant": "+ Morphology Head",
+          "map50": 0.869,
+          "dice": 0.792,
+          "iou": null,
+          "shape_acc": 0.874,
+          "boundary_f1": null,
+          "params_m": 24.3,
+          "fps": 38,
+          "insight": "Adds shape context"
+        },
+        {
+          "variant": "+ Standard Attention [9]",
+          "map50": 0.881,
+          "dice": 0.816,
+          "iou": null,
+          "shape_acc": 0.891,
+          "boundary_f1": null,
+          "params_m": 24.5,
+          "fps": 40,
+          "insight": "Improves context"
+        },
+        {
+          "variant": "+ MA-Attention (Ours)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "iou": null,
+          "shape_acc": 0.912,
+          "boundary_f1": null,
+          "params_m": 24.8,
+          "fps": 38,
+          "insight": "+5.8% Dice, best overall",
+          "highlight": true
+        },
+        {
+          "variant": "Improvement vs. Baseline",
+          "map50": "+3.1%",
+          "dice": "+5.8%",
+          "iou": null,
+          "shape_acc": "+4.4%",
+          "boundary_f1": null,
+          "params_m": "+7.4%",
+          "fps": "-15.6%",
+          "insight": "Validates multi-task synergy",
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "id": "ma_attention_morphology",
+      "title": "2. MA-Attention by Morphology",
+      "rows": [
+        {
+          "variant": "Round (e < 0.7)",
+          "dice": 0.847,
+          "insight": "+0.2% over Std. Attention"
+        },
+        {
+          "variant": "Elongated (e ≥ 0.7)",
+          "dice": 0.814,
+          "insight": "+5.2%* over Std. Attention",
+          "significant": true
+        },
+        {
+          "variant": "Lobulated",
+          "dice": 0.769,
+          "insight": "+3.8% gain"
+        }
+      ]
+    },
+    {
+      "id": "loss_function",
+      "title": "3. Loss Function",
+      "rows": [
+        {
+          "variant": "Dice Only",
+          "dice": 0.819,
+          "iou": 0.738,
+          "boundary_f1": 0.781,
+          "insight": "Moderate stability"
+        },
+        {
+          "variant": "BCE Only",
+          "dice": 0.801,
+          "iou": 0.721,
+          "boundary_f1": 0.763,
+          "insight": "Stable"
+        },
+        {
+          "variant": "Dice + BCE (Ours)",
+          "dice": 0.834,
+          "iou": 0.752,
+          "boundary_f1": 0.798,
+          "insight": "Best balance",
+          "highlight": true
+        },
+        {
+          "variant": "Dice + BCE + Weighted Boundary",
+          "dice": 0.836,
+          "iou": 0.754,
+          "boundary_f1": 0.807,
+          "insight": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "task_weighting",
+      "title": "4. Task Weighting (λ₁, λ₂, λ₃)",
+      "rows": [
+        {
+          "variant": "(1.0, 1.0, 1.0)",
+          "map50": 0.887,
+          "dice": 0.821,
+          "shape_acc": 0.903,
+          "insight": "Balanced baseline"
+        },
+        {
+          "variant": "(2.0, 1.0, 0.5)",
+          "map50": 0.892,
+          "dice": 0.814,
+          "shape_acc": 0.897,
+          "insight": "Detection-biased"
+        },
+        {
+          "variant": "(1.0, 2.0, 0.5) (Ours)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "shape_acc": 0.912,
+          "insight": "Best global balance",
+          "highlight": true
+        },
+        {
+          "variant": "(1.0, 1.0, 2.0)",
+          "map50": 0.886,
+          "dice": 0.819,
+          "shape_acc": 0.918,
+          "insight": "Morphology-biased"
+        }
+      ]
+    },
+    {
+      "id": "backbone",
+      "title": "5. Backbone",
+      "rows": [
+        {
+          "variant": "ResNet34",
+          "map50": 0.881,
+          "dice": 0.813,
+          "params_m": 18.7,
+          "fps": 52,
+          "insight": "Fast but less accurate"
+        },
+        {
+          "variant": "ResNet50 (Ours)",
+          "map50": 0.894,
+          "dice": 0.834,
+          "params_m": 23.5,
+          "fps": 38,
+          "insight": "Best trade-off",
+          "highlight": true
+        },
+        {
+          "variant": "ResNet101",
+          "map50": 0.898,
+          "dice": 0.841,
+          "params_m": 41.2,
+          "fps": 24,
+          "insight": "High latency"
+        },
+        {
+          "variant": "EfficientNet-B3",
+          "map50": 0.887,
+          "dice": 0.819,
+          "params_m": 10.8,
+          "fps": 29,
+          "insight": "Lower accuracy"
+        }
+      ]
+    },
+    {
+      "id": "attention_module",
+      "title": "6. Attention Module",
+      "rows": [
+        {
+          "variant": "None",
+          "dice": 0.788,
+          "params_delta_m": 0.0,
+          "fps": 45,
+          "insight": "Baseline"
+        },
+        {
+          "variant": "SE Block [31]",
+          "dice": 0.809,
+          "params_delta_m": 0.12,
+          "fps": 42,
+          "insight": "Moderate gain"
+        },
+        {
+          "variant": "CBAM [31]",
+          "dice": 0.813,
+          "params_delta_m": 0.15,
+          "fps": 41,
+          "insight": "Context enhancement"
+        },
+        {
+          "variant": "Spatial [9]",
+          "dice": 0.816,
+          "params_delta_m": 0.14,
+          "fps": 40,
+          "insight": "Improved focus"
+        },
+        {
+          "variant": "MA-Attention (Ours)",
+          "dice": 0.834,
+          "boundary_f1": 0.814,
+          "boundary_f1_note": "elongated subset",
+          "params_delta_m": 0.18,
+          "fps": 38,
+          "insight": "Best Dice, +10.2% elongated",
+          "highlight": true
+        }
+      ]
+    }
+  ]
+}

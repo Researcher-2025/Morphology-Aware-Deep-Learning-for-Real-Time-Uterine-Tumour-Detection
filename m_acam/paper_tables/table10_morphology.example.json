@@ -1,0 +1,37 @@
+{
+  "mode": "static",
+  "eccentricity_threshold": 0.7,
+  "baseline_name": "Swin-Unet",
+  "highlight_morphology": "elongated",
+  "significance_note": "p < 0.001, validates morphology-aware attention hypothesis",
+  "rows": [
+    {
+      "key": "round",
+      "label": "Round (e < 0.7)",
+      "count": 173,
+      "macam_dice": 0.847,
+      "baseline_dice": 0.841,
+      "improvement_pct": 0.6,
+      "significant": false
+    },
+    {
+      "key": "elongated",
+      "label": "Elongated (e ≥ 0.7)",
+      "count": 104,
+      "macam_dice": 0.814,
+      "baseline_dice": 0.782,
+      "improvement_pct": 3.2,
+      "significant": true,
+      "p_paired_ttest": 0.0008
+    },
+    {
+      "key": "lobulated",
+      "label": "Lobulated",
+      "count": 21,
+      "macam_dice": 0.769,
+      "baseline_dice": 0.741,
+      "improvement_pct": 2.8,
+      "significant": false
+    }
+  ]
+}

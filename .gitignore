@@ -1,0 +1,38 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Training / weights (regenerate locally) ---
+checkpoints/
+checkpoints_*/
+*.pt
+*.pth
+*.ckpt
+
+# --- Large / local data (uncomment if you do NOT want images in the repo) ---
+# Dataset/JPEGImages/
+# Dataset/Annotations/
+Dataset/*.rar
+
+# --- Local stash (sibling folder; ignore if copied inside repo by mistake) ---
+_excluded_from_github/
+
+# --- OS ---
+Thumbs.db
+Desktop.ini

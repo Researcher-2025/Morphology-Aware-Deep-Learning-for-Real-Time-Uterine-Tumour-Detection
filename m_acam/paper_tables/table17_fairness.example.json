@@ -1,0 +1,59 @@
+{
+  "section_title": "5.11 Fairness & Bias Analysis",
+  "table_title": "Table 17: Demographic Subgroup Performance",
+  "intro_paragraph": "Table shows Dice scores (a segmentation accuracy metric) across different subgroups. Small fibroid performance gap addressed via multi-scale anchors (future work). No statistically significant bias by age or menopausal status (ANOVA: F=0.87, p=0.42). It complies with FDA guidance on AI/ML bias mitigation.",
+  "rows": [
+    {
+      "subgroup": "Age <35",
+      "n": 47,
+      "dice": 0.829,
+      "delta_vs_overall_pct": -0.5
+    },
+    {
+      "subgroup": "Age 35-50",
+      "n": 189,
+      "dice": 0.836,
+      "delta_vs_overall_pct": 0.2
+    },
+    {
+      "subgroup": "Age >50",
+      "n": 62,
+      "dice": 0.831,
+      "delta_vs_overall_pct": -0.3
+    },
+    {
+      "subgroup": "Premenopausal",
+      "n": 230,
+      "dice": 0.835,
+      "delta_vs_overall_pct": 0.1
+    },
+    {
+      "subgroup": "Postmenopausal",
+      "n": 119,
+      "dice": 0.832,
+      "delta_vs_overall_pct": -0.2
+    },
+    {
+      "subgroup": "Fibroid <4cm",
+      "n": 66,
+      "dice": 0.781,
+      "delta_vs_overall_pct": -5.3,
+      "significant": true
+    },
+    {
+      "subgroup": "Fibroid 4-8cm",
+      "n": 214,
+      "dice": 0.847,
+      "delta_vs_overall_pct": 1.3
+    },
+    {
+      "subgroup": "Fibroid >8cm",
+      "n": 18,
+      "dice": 0.863,
+      "delta_vs_overall_pct": 2.9
+    }
+  ],
+  "footnotes": [
+    "*Small fibroids: performance gap noted; multi-scale anchors planned as mitigation (see main text)."
+  ]
+}

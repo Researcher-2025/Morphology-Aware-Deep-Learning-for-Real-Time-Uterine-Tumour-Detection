@@ -1,0 +1,47 @@
+{
+  "description": "Table 6 style: set dice/fps/memory for baselines from your paper or prior runs. Set measure_runtime true only for models you can instantiate here.",
+  "input_size": [1, 1, 512, 512],
+  "benchmark": { "warmup": 10, "repeats": 100 },
+  "efficiency_formula": "(dice * fps) / (memory_mb / 1000.0)",
+  "models": [
+    {
+      "key": "unet",
+      "display_name": "U-Net",
+      "dice": 0.763,
+      "fps": 87,
+      "memory_mb": 982,
+      "note": "From paper / prior benchmark — edit if you re-measured"
+    },
+    {
+      "key": "transunet",
+      "display_name": "TransUNet",
+      "dice": 0.808,
+      "fps": 19,
+      "memory_mb": 3247,
+      "note": "From paper"
+    },
+    {
+      "key": "swin_unet",
+      "display_name": "Swin-Unet",
+      "dice": 0.821,
+      "fps": 26,
+      "memory_mb": 2134,
+      "note": "From paper"
+    },
+    {
+      "key": "efficientnet_b0",
+      "display_name": "EfficientNet-B0",
+      "dice": 0.791,
+      "fps": 68,
+      "memory_mb": 943,
+      "note": "From paper"
+    },
+    {
+      "key": "macam",
+      "display_name": "M-ACAM",
+      "dice": 0.834,
+      "measure_runtime": true,
+      "note": "Dice from your segmentation eval; FPS/memory measured on this machine"
+    }
+  ]
+}
